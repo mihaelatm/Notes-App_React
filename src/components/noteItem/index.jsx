@@ -1,13 +1,27 @@
+import { connect } from "react-redux";
 import styles from "./styles.module.css";
+import { deleteNote } from "../../redux/actions/actionsNote";
 
-function NoteItem({ id, title, content }) {
+function NoteItem({ id, title, content, deleteNoteFromList }) {
   return (
-    <div className={styles.note_item_continer}>
+    <div className={styles.note_item_container}>
       <h3 className={styles.note_item_title}>{title}</h3>
       <p className={styles.note_item_content}>{content}</p>
       <button className={styles.edit_button}>Edit</button>
-      <button className={styles.delete_item_button}>Delete</button>
+      <button
+        onClick={() => deleteNoteFromList(id)}
+        className={styles.delete_item_button}
+      >
+        Delete
+      </button>
     </div>
   );
 }
-export default NoteItem;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteNoteFromList: (id) => dispatch(deleteNote(id)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(NoteItem);
