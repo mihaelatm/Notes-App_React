@@ -1,7 +1,9 @@
 import { useState } from "react";
 import styles from "./styles.module.css";
+import { addNote } from "../../redux/actions/actionsNote";
+import { connect } from "react-redux";
 
-function NoteForm() {
+function NoteForm({ addNoteToList }) {
   const [note, setNote] = useState({ title: "", content: "" });
 
   function handleChange(event) {
@@ -15,6 +17,10 @@ function NoteForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    addNoteToList({
+      ...note,
+      id: new Date().getTime().toString(),
+    });
   }
 
   return (
@@ -39,4 +45,10 @@ function NoteForm() {
   );
 }
 
-export default NoteForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addNoteToList: (noteData) => dispatch(addNote(noteData)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(NoteForm);

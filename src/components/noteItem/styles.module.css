@@ -1,0 +1,47 @@
+.note_item_continer {
+  max-width: 350px;
+  padding: 20px;
+  border: 1px solid black;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.note_item_title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.note_item_content {
+  font-size: 1rem;
+}
+
+button {
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  padding: 10px 50px;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  color: aliceblue;
+}
+
+.edit_button {
+  background-color: #0078f8;
+}
+
+.edit_button:hover {
+  background-color: #0b59ad;
+}
+
+.delete_item_button {
+  background-color: #e72e40;
+  color: white;
+}
+
+.delete_item_button:hover {
+  background-color: #c41325;
+}
